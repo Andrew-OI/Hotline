@@ -1,21 +1,36 @@
-class LoginPage {
-    constructor () {
-        this.loginEmailInput = element(by.css('[name="login"]'));
-        this.loginPassword = element(by.css('[name="password"]'));
-        this.loginButton2 = element(by.css('[type="submit"]'));
-    };
-        
+
+let BasePage = require("./base.page.js");
+let InputForm = require("../elements/input.form.js");
+let Button = require("../elements/Button.js");
+
+const EMAIL_INPUT_FORM_LOCATOR = by.css('[name="login"]');
+const PASSWORD_INPUT_FORM_LOCATOR = by.css('[name="password"]');
+const LOGIN_BUTTON_ENTER_LOCATOR = by.css('[type="submit"]');
+
+class LoginPage extends BasePage {
+      
     async loginEmailSendKeys(value) {
-        await this.loginEmailInput.sendKeys(value);
-        
-    };
+        await this.getEmailInputForm().sendKeys(value);
+    }
 
     async loginPasswordSendKeys(value) {
-        await this.loginPassword.sendKeys(value);
-    };
+        await this.getPasswordInputForm().sendKeys(value);
+    }
 
-    async loginButtonClick2() {
-        await this.loginButton2.click();
+    async loginButtonEnter() {
+        await this.getLoginButtonEnter().click();
+    }
+
+    getEmailInputForm() {
+        return new InputForm(element(EMAIL_INPUT_FORM_LOCATOR), "Email Input Form");
+    }
+
+    getPasswordInputForm() {
+        return new InputForm(element(PASSWORD_INPUT_FORM_LOCATOR), "Password Input Form");
+    }
+
+    getLoginButtonEnter() {
+        return new Button(element(LOGIN_BUTTON_ENTER_LOCATOR), "Login Button Enter");
     }
     
 };
