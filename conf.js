@@ -24,6 +24,10 @@ exports.config = {
     onPrepare() {
       browser.waitForAngularEnabled(false),
       console.log('Let`s start!')
+      var AllureReporter = require('jasmine-allure-reporter');
+      jasmine.getEnv().addReporter(new AllureReporter({
+        resultDir: 'allure-results'
+      }));
     }
   
   }

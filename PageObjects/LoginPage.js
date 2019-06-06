@@ -1,7 +1,7 @@
 
 let BasePage = require("./base.page.js");
 let InputForm = require("../elements/input.form.js");
-let Button = require("../elements/Button.js");
+let Button = require("../elements/button.element.js");
 
 const EMAIL_INPUT_FORM_LOCATOR = by.css('[name="login"]');
 const PASSWORD_INPUT_FORM_LOCATOR = by.css('[name="password"]');
