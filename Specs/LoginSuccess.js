@@ -11,13 +11,12 @@ describe ('Successful login Hotline', () => {
         await browser.sleep(5000);
         expect(await browser.getTitle()).toBe('Hotline - порівняти ціни в інтернет-магазинах України');
         });
-        
-        
-
-        async function createScreenShotAllure() {
-            let screenshotFile = await browser.takeScreenshot();
-            await allure.createAttachment("Screenshot", () => {
-                return new Buffer(screenshotFile, "base64")
-            }, 'image/png');
-        }
+          
     });
+
+ //       async function createScreenShotAllure() {
+ //           let screenshotFile = await browser.takeScreenshot();
+ //          await allure.createAttachment("Screenshot", () => {
+ //               return new Buffer(screenshotFile, "base64")
+ //           }, 'image/png');
+ //       }

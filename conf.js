@@ -28,5 +28,11 @@ exports.config = {
       jasmine.getEnv().addReporter(new AllureReporter({
         resultDir: 'allure-results'
       }))
+    },
+
+    afterTest: function(test) {
+      {
+        browser.takeScreenshot();
+      }
     }
 }
