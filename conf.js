@@ -21,18 +21,22 @@ exports.config = {
   
     SELENIUM_PROMISE_MANAGER: false,
   
-    onPrepare() {
+    onPrepare: async () => {
       browser.waitForAngularEnabled(false),
       console.log('Let`s start!')
       var AllureReporter = require('jasmine-allure-reporter');
       jasmine.getEnv().addReporter(new AllureReporter({
         resultDir: 'allure-results'
-      }))
-    },
-
-    afterTest: function(test) {
-      {
-        browser.takeScreenshot();
-      }
+      })),
+      jasmine.getEnv().afterEach(async () => {
+        await createScreenShotAllure();
+      });
     }
 }
+
+      async function createScreenShotAllure() {
+          let screenshotFile = await browser.takeScreenshot();
+          await allure.createAttachment("Screenshot", () => {
+            return new Buffer(screenshotFile, "base64")
+          }, 'image/png')();
+      }

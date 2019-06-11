@@ -6,11 +6,11 @@ const LOGIN_BTN_LOCATOR = by.css('.item-login > a');
 
 class LandingPage extends BasePage {
     
-    async loginLanding(browserUrl) {
+    async navigateToLogin(browserUrl) {
         await allure.createStep(`Click on the Login button on the Landing page`, async () => {
             await browser.get(browserUrl);
             await this.getLoginButton().click();
-        })
+        })();
     }
 
     getLoginButton() {

@@ -14,7 +14,7 @@ class LoginPage extends BasePage {
             await this.getEmailInputForm().sendKeys(email);
             await this.getPasswordInputForm().sendKeys(pass);
             await this.getLoginButtonEnter().click();
-        });
+        })();
     }
       
     getEmailInputForm() {
