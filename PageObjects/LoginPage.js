@@ -8,19 +8,15 @@ const PASSWORD_INPUT_FORM_LOCATOR = by.css('[name="password"]');
 const LOGIN_BUTTON_ENTER_LOCATOR = by.css('[type="submit"]');
 
 class LoginPage extends BasePage {
+
+    async login(email, pass) {
+        await allure.createStep(`Login with ${email} / ${pass}`, async () => {
+            await this.getEmailInputForm().sendKeys(email);
+            await this.getPasswordInputForm().sendKeys(pass);
+            await this.getLoginButtonEnter().click();
+        });
+    }
       
-    async loginEmailSendKeys(value) {
-        await this.getEmailInputForm().sendKeys(value);
-    }
-
-    async loginPasswordSendKeys(value) {
-        await this.getPasswordInputForm().sendKeys(value);
-    }
-
-    async loginButtonEnter() {
-        await this.getLoginButtonEnter().click();
-    }
-
     getEmailInputForm() {
         return new InputForm(element(EMAIL_INPUT_FORM_LOCATOR), "Email Input Form");
     }
