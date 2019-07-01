@@ -1,5 +1,6 @@
 exports.config = {
     framework: 'jasmine',
+    maxInstances: 1,
     seleniumAddress: 'http://localhost:4444/wd/hub',
     params: {
       login: {
@@ -9,9 +10,14 @@ exports.config = {
       },
       url: {
         urla: 'https://hotline.ua/'
-      }
+      },
+      register: {
+        email: 'jimbo2382@gmail.com',
+        nickname: 'jimbo8232',
+        pass: '22jimbo'
+      },
     },
-    specs: ['Specs/LoginSuccess.js'],
+    specs: ['Specs/*.js'],
     capabilities: {
       browserName: 'chrome',
       chromeOptions: {
@@ -23,14 +29,14 @@ exports.config = {
   
     onPrepare: async () => {
       console.log('Let`s start!')
-      await browser.manage().timeouts().implicitlyWait(5000);
       var AllureReporter = require('jasmine-allure-reporter');
       jasmine.getEnv().addReporter(new AllureReporter({
         resultDir: 'allure-results'
       })),
       jasmine.getEnv().beforeAll(async () => {
         await browser.restart();
-        browser.waitForAngularEnabled(false)
+        browser.waitForAngularEnabled(false);
+        browser.manage().timeouts().implicitlyWait(5000);
       });
       jasmine.getEnv().afterEach(async () => {
         await createScreenShotAllure();
