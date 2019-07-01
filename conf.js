@@ -13,7 +13,7 @@ exports.config = {
         urla: 'https://hotline.ua/'
       },
       register: {
-        email: 'jimbo'+Date.now()+'@gmail.com',
+        email: 'jimbo+'+Date.now()+'@gmail.com',
         nickname: 'jimbo'+Date.now(),
         pass: '22jimbo',
       },
