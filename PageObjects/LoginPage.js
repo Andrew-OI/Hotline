@@ -7,6 +7,7 @@ const EMAIL_INPUT_FORM_LOCATOR = by.css('[name="login"]');
 const PASSWORD_INPUT_FORM_LOCATOR = by.css('[name="password"]');
 const LOGIN_BUTTON_ENTER_LOCATOR = by.css('[type="submit"]');
 const EMAIL_INPUT_LOCATOR = by.css('.field[type="email"]');
+const REGISTER_BUTTON_LOCATOR = by.css('[href="/register/"]');
 
 class LoginPage extends BasePage {
 
@@ -18,6 +19,12 @@ class LoginPage extends BasePage {
         })();
     };
       
+    async clickRegisterButton() {
+        await allure.createStep(`Clicking on the Register button`, async () => {
+            await this.getRegisterButton().click();
+        })();
+    };
+    
     async waitForLoginPageLoaded() {
         let EC = protractor.ExpectedConditions;
         await browser.wait(EC.presenceOf(this.getEmailInputElement().getProtractorElement()), 15000)
@@ -38,6 +45,10 @@ class LoginPage extends BasePage {
     getEmailInputElement() {
         return new InputForm(element(EMAIL_INPUT_LOCATOR), "Email Input Form");
     };
+
+    getRegisterButton() {
+        return new Button(element(REGISTER_BUTTON_LOCATOR), "Register Button");
+    }
     
 };
 module.exports = new LoginPage ();

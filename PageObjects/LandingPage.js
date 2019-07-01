@@ -29,15 +29,15 @@ class LandingPage extends BasePage {
 
     getUsernameElement() {
         return new TextBox(element(USERNAME_LOCATOR), "Username")
-    }
+    };
 
     getLoginButtonElement() {
         return new Button(element(LOGIN_BTN_LOCATOR), "Login Button")
-    }
+    };
 
     getSearchElement() {
         return new InputForm(element(SEARCH_LOCATOR), "Search")
-    }
+    };
 
 
 }
