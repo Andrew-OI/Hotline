@@ -12,8 +12,8 @@ exports.config = {
         urla: 'https://hotline.ua/'
       },
       register: {
-        email: 'jimbo2382@gmail.com',
-        nickname: 'jimbo8232',
+        email: 'jimbo2382@gmail.com+<current time in milliseconds>',
+        nickname: 'jimbo8232+<current time in milliseconds>',
         pass: '22jimbo'
       },
     },

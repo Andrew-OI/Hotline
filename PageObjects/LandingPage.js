@@ -14,7 +14,7 @@ class LandingPage extends BasePage {
         await allure.createStep(`Click on the Login button on the Landing page`, async () => {
             await browser.get(browserUrl);
             await this.waitForPageLoaded();
-            this.getLoginButtonElement().click();
+            await this.getLoginButtonElement().click();
         })();
     };
 

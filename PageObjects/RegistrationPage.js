@@ -16,7 +16,7 @@ class RegistrationPage extends BasePage {
             await this.getEmailInputFormElement().sendKeys(email);
             await this.getNicknameInputFormElement().sendKeys(nickname);
             await this.getPasswordInputFormElement().sendKeys(pass);
-            this.getRegisterButtonElement().click();
+            await this.getRegisterButtonElement().click();
         })();
     };
 

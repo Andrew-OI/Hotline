@@ -15,7 +15,7 @@ class LoginPage extends BasePage {
         await allure.createStep(`Login with ${email} / ${pass}`, async () => {
             await this.getEmailInputForm().sendKeys(email);
             await this.getPasswordInputForm().sendKeys(pass);
-            this.getLoginButtonEnter().click();
+            await this.getLoginButtonEnter().click();
         })();
     };
       
