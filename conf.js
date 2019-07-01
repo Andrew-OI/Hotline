@@ -2,6 +2,7 @@ exports.config = {
     framework: 'jasmine',
     maxInstances: 1,
     seleniumAddress: 'http://localhost:4444/wd/hub',
+        
     params: {
       login: {
         email: 'andriy.oprofat@eleks.com',
@@ -12,9 +13,9 @@ exports.config = {
         urla: 'https://hotline.ua/'
       },
       register: {
-        email: 'jimbo2382@gmail.com+<current time in milliseconds>',
-        nickname: 'jimbo8232+<current time in milliseconds>',
-        pass: '22jimbo'
+        email: 'jimbo'+Date.now()+'@gmail.com',
+        nickname: 'jimbo'+Date.now(),
+        pass: '22jimbo',
       },
     },
     specs: ['Specs/*.js'],
