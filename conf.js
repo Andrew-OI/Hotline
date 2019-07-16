@@ -14,11 +14,12 @@ exports.config = {
       },
       register: {
         email: 'jimbo+'+Date.now()+'@gmail.com',
+        invalidemail: 'qwerty',
         nickname: 'jimbo'+Date.now(),
         pass: '22jimbo',
       },
     },
-    specs: ['Specs/*.js'],
+    specs: ['Specs/CreateAccountNegative.js'],
     capabilities: {
       browserName: 'chrome',
       chromeOptions: {
